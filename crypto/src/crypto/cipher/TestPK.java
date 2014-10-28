@@ -45,12 +45,17 @@ public class TestPK {
 		
 		// 4. Cifrando por bloque
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		int maxBloqueDescifradoLen = MAX_BLOQUE_CIFRADO;
+		
+		int maxBloqueDescifrado = MAX_BLOQUE_DESCIFRADO;
+		if (mensajeCifrado.length < MAX_BLOQUE_DESCIFRADO)
+			maxBloqueDescifrado = mensajeCifrado.length;
+
 		for (int i = 0; i < bloques; i++) {
-			int maxBloqueDescifrado = MAX_BLOQUE_DESCIFRADO;
-			if (mensajeCifrado.length < MAX_BLOQUE_DESCIFRADO)
-				maxBloqueDescifrado = mensajeCifrado.length;
-				
-			byte[] bloque = cipher.doFinal(mensajeCifrado, i * maxBloqueDescifrado, maxBloqueDescifrado);
+			if (i + 1 == bloques)
+				maxBloqueDescifradoLen = mensajeCifrado.length - (i * maxBloqueDescifrado);
+			
+			byte[] bloque = cipher.doFinal(mensajeCifrado, i * maxBloqueDescifrado, maxBloqueDescifradoLen);
 			
 			baos.write(bloque);
 		}
@@ -75,12 +80,17 @@ public class TestPK {
 		
 		// 4. Cifrando por bloque
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		int maxBloqueCifradoLen = MAX_BLOQUE_CIFRADO;
+		
+		int maxBloqueCifrado = MAX_BLOQUE_CIFRADO;
+		if (mensaje.length < MAX_BLOQUE_CIFRADO)
+			maxBloqueCifrado = mensaje.length;
+		
 		for (int i = 0; i < bloques; i++) {
-			int maxBloqueCifrado = MAX_BLOQUE_CIFRADO;
-			if (mensaje.length < MAX_BLOQUE_CIFRADO)
-				maxBloqueCifrado = mensaje.length;
+			if (i + 1 == bloques)
+				maxBloqueCifradoLen = mensaje.length - (i * maxBloqueCifrado);
 				
-			byte[] bloqueCifrado = cipher.doFinal(mensaje, i * maxBloqueCifrado, maxBloqueCifrado);
+			byte[] bloqueCifrado = cipher.doFinal(mensaje, i * maxBloqueCifrado, maxBloqueCifradoLen);
 			
 			baos.write(bloqueCifrado);
 		}
