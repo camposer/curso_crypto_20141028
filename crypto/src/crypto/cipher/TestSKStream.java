@@ -31,33 +31,6 @@ public class TestSKStream {
 	}
 
 
-	private static void descifrar(Key key) throws Exception {
-		// 1. Inicializando el motor de cifrado
-		Cipher cipher = Cipher.getInstance(ALGORITMO);
-		cipher.init(Cipher.DECRYPT_MODE, key);
-		
-		// 2. Construyendo flujos de entrada (texto cifrado)
-		FileInputStream fis = new FileInputStream(FICHERO_CIFRADO);
-		CipherInputStream cis = new CipherInputStream(fis, cipher);
-		BufferedReader br = new BufferedReader(new InputStreamReader(cis));
-		
-		// 3. Construyendo fichero de salida (texto-plano)
-		PrintWriter pw = new PrintWriter(new FileOutputStream(FICHERO_DESCIFRADO));
-		
-		String linea = br.readLine(); 
-		while (linea != null) {
-			pw.println(linea);
-			linea = br.readLine();
-		}
-		
-		// 4. Cerrando flujos
-		pw.flush();
-		pw.close();
-		br.close();
-
-	}
-
-
 	private static void cifrar(Key key) throws Exception {
 		// 1. Inicializando el motor de cifrado
 		Cipher cipher = Cipher.getInstance(ALGORITMO);
@@ -82,4 +55,30 @@ public class TestSKStream {
 		pw.close();
 		br.close();
 	}
+	
+	private static void descifrar(Key key) throws Exception {
+		// 1. Inicializando el motor de cifrado
+		Cipher cipher = Cipher.getInstance(ALGORITMO);
+		cipher.init(Cipher.DECRYPT_MODE, key);
+		
+		// 2. Construyendo flujos de entrada (texto cifrado)
+		FileInputStream fis = new FileInputStream(FICHERO_CIFRADO);
+		CipherInputStream cis = new CipherInputStream(fis, cipher);
+		BufferedReader br = new BufferedReader(new InputStreamReader(cis));
+		
+		// 3. Construyendo fichero de salida (texto-plano)
+		PrintWriter pw = new PrintWriter(new FileOutputStream(FICHERO_DESCIFRADO));
+		
+		String linea = br.readLine(); 
+		while (linea != null) {
+			pw.println(linea);
+			linea = br.readLine();
+		}
+		
+		// 4. Cerrando flujos
+		pw.flush();
+		pw.close();
+		br.close();
+
+	}	
 }

@@ -32,36 +32,6 @@ public class TestPK {
 	}
 
 
-	private static void descifrar(Key key) throws Exception {
-		// 1. Obteniendo bytes del fichero
-		byte[] mensajeCifrado = Files.readAllBytes(new File(FICHERO_CIFRADO).toPath());
-		
-		// 2. Inicializando el motor de cifrado
-		Cipher cipher = Cipher.getInstance(ALGORITMO);
-		cipher.init(Cipher.DECRYPT_MODE, key);
-		
-		// 3. Calculando número de bloques
-		int bloques = (int)Math.ceil((double)mensajeCifrado.length / MAX_BLOQUE_DESCIFRADO);
-		
-		// 4. Cifrando por bloque
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		int maxBloqueDescifradoLen = MAX_BLOQUE_DESCIFRADO;
-		for (int i = 0; i < bloques; i++) {
-			if (i + 1 == bloques)
-				maxBloqueDescifradoLen = mensajeCifrado.length - (i * MAX_BLOQUE_DESCIFRADO);
-			
-			byte[] bloque = cipher.doFinal(mensajeCifrado, i * MAX_BLOQUE_DESCIFRADO, maxBloqueDescifradoLen);
-			
-			baos.write(bloque);
-		}
-		
-		// 5. Escribiendo fichero cifrado
-		Files.write(new File(FICHERO_DESCIFRADO).toPath(), 
-				baos.toByteArray(), 
-				StandardOpenOption.CREATE);
-	}
-
-
 	private static void cifrar(Key key) throws Exception {
 		// 1. Obteniendo bytes del fichero
 		byte[] mensaje = Files.readAllBytes(new File(FICHERO_ORIGINAL).toPath());
@@ -88,6 +58,35 @@ public class TestPK {
 		
 		// 5. Escribiendo fichero cifrado
 		Files.write(new File(FICHERO_CIFRADO).toPath(), 
+				baos.toByteArray(), 
+				StandardOpenOption.CREATE);
+	}
+	
+	private static void descifrar(Key key) throws Exception {
+		// 1. Obteniendo bytes del fichero
+		byte[] mensajeCifrado = Files.readAllBytes(new File(FICHERO_CIFRADO).toPath());
+		
+		// 2. Inicializando el motor de cifrado
+		Cipher cipher = Cipher.getInstance(ALGORITMO);
+		cipher.init(Cipher.DECRYPT_MODE, key);
+		
+		// 3. Calculando número de bloques
+		int bloques = (int)Math.ceil((double)mensajeCifrado.length / MAX_BLOQUE_DESCIFRADO);
+		
+		// 4. Cifrando por bloque
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		int maxBloqueDescifradoLen = MAX_BLOQUE_DESCIFRADO;
+		for (int i = 0; i < bloques; i++) {
+			if (i + 1 == bloques)
+				maxBloqueDescifradoLen = mensajeCifrado.length - (i * MAX_BLOQUE_DESCIFRADO);
+			
+			byte[] bloque = cipher.doFinal(mensajeCifrado, i * MAX_BLOQUE_DESCIFRADO, maxBloqueDescifradoLen);
+			
+			baos.write(bloque);
+		}
+		
+		// 5. Escribiendo fichero cifrado
+		Files.write(new File(FICHERO_DESCIFRADO).toPath(), 
 				baos.toByteArray(), 
 				StandardOpenOption.CREATE);
 	}

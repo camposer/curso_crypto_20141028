@@ -26,25 +26,6 @@ public class TestSK {
 		System.out.println("Fichero descifrado...");
 	}
 
-
-	private static void descifrar(Key key) throws Exception {
-		// 1. Obteniendo bytes del fichero
-		byte[] mensajeCifrado = Files.readAllBytes(new File(FICHERO_CIFRADO).toPath());
-		
-		// 2. Inicializando el motor de cifrado
-		Cipher cipher = Cipher.getInstance(ALGORITMO);
-		cipher.init(Cipher.DECRYPT_MODE, key);
-		
-		// 3. Cifrando mensaje original
-		byte[] mensaje = cipher.doFinal(mensajeCifrado);
-		
-		// 4. Escribiendo fichero cifrado
-		Files.write(new File(FICHERO_DESCIFRADO).toPath(), 
-				mensaje, 
-				StandardOpenOption.CREATE);
-	}
-
-
 	private static void cifrar(Key key) throws Exception {
 		// 1. Obteniendo bytes del fichero
 		byte[] mensaje = Files.readAllBytes(new File(FICHERO_ORIGINAL).toPath());
@@ -61,4 +42,22 @@ public class TestSK {
 				mensajeCifrado, 
 				StandardOpenOption.CREATE);
 	}
+	
+	private static void descifrar(Key key) throws Exception {
+		// 1. Obteniendo bytes del fichero
+		byte[] mensajeCifrado = Files.readAllBytes(new File(FICHERO_CIFRADO).toPath());
+		
+		// 2. Inicializando el motor de cifrado
+		Cipher cipher = Cipher.getInstance(ALGORITMO);
+		cipher.init(Cipher.DECRYPT_MODE, key);
+		
+		// 3. Cifrando mensaje original
+		byte[] mensaje = cipher.doFinal(mensajeCifrado);
+		
+		// 4. Escribiendo fichero cifrado
+		Files.write(new File(FICHERO_DESCIFRADO).toPath(), 
+				mensaje, 
+				StandardOpenOption.CREATE);
+	}
+	
 }
