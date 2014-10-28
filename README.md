@@ -1,7 +1,5 @@
-curso_crypto
-============
-
 Curso de Criptografía y Seguridad en Java
+=========================================
 
 Agenda
 ------
@@ -40,6 +38,8 @@ Enlaces
 	http://docs.oracle.com/javase/6/docs/technotes/guides/security/StandardNames.html
 	- Java AES and using my own Key
 	http://stackoverflow.com/questions/3451670/java-aes-and-using-my-own-key
+	- Should I use Cipher.WRAP_MODE OR Cipher.ENCRYPT_MODE to encrypt a session key?
+	http://stackoverflow.com/questions/16586627/should-i-use-cipher-wrap-mode-or-cipher-encrypt-mode-to-encrypt-a-session-key
 
 - Certificados y PKI
 	- X.509 Certificates and Certificate Revocation Lists (CRLs)
