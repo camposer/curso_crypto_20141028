@@ -8,11 +8,21 @@ NOTA: Debe utilizar como algoritmo Triple DES (consultar en Anexo A el nombre de
 
 ---
 
-3.- Implementar una clase de prueba que obtenga el hash del documento quijote.txt y lo muestre en pantalla en hexadecimal (compruebe con alguna herramienta en línea)
+3.- Implementar una clase de prueba que obtenga el hash (SHA1) del documento quijote.txt y lo muestre en pantalla en hexadecimal (compruebe con alguna herramienta en línea)
 - http://www.md5calc.com/
 - http://stackoverflow.com/questions/9655181/convert-from-byte-array-to-hex-string-in-java
 
 ---
 
 4.- Implementar una clase de prueba que firme el documento quijote.txt y luego lo verifique
+
+
+
+
+
+
+
+
+
+
 

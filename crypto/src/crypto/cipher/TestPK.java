@@ -17,7 +17,7 @@ public class TestPK {
 	private static final String FICHERO_CIFRADO = "file/quijote-cifrado.txt";
 	private static final String FICHERO_DESCIFRADO = "file/quijote-descifrado.txt";
 	private static final int MAX_BLOQUE_CIFRADO = 117;
-	private static final int MAX_BLOQUE_DESCIFRADO = 127;
+	private static final int MAX_BLOQUE_DESCIFRADO = 128;
 	
 	public static void main(String[] args) throws Exception {
 		// 0. Obteniendo clave simétrica
@@ -46,16 +46,11 @@ public class TestPK {
 		// 4. Cifrando por bloque
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		int maxBloqueDescifradoLen = MAX_BLOQUE_DESCIFRADO;
-		
-		int maxBloqueDescifrado = MAX_BLOQUE_DESCIFRADO;
-		if (mensajeCifrado.length < MAX_BLOQUE_DESCIFRADO)
-			maxBloqueDescifrado = mensajeCifrado.length;
-
 		for (int i = 0; i < bloques; i++) {
 			if (i + 1 == bloques)
-				maxBloqueDescifradoLen = mensajeCifrado.length - (i * maxBloqueDescifrado);
+				maxBloqueDescifradoLen = mensajeCifrado.length - (i * MAX_BLOQUE_DESCIFRADO);
 			
-			byte[] bloque = cipher.doFinal(mensajeCifrado, i * maxBloqueDescifrado, maxBloqueDescifradoLen);
+			byte[] bloque = cipher.doFinal(mensajeCifrado, i * MAX_BLOQUE_DESCIFRADO, maxBloqueDescifradoLen);
 			
 			baos.write(bloque);
 		}
@@ -82,15 +77,11 @@ public class TestPK {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		int maxBloqueCifradoLen = MAX_BLOQUE_CIFRADO;
 		
-		int maxBloqueCifrado = MAX_BLOQUE_CIFRADO;
-		if (mensaje.length < MAX_BLOQUE_CIFRADO)
-			maxBloqueCifrado = mensaje.length;
-		
 		for (int i = 0; i < bloques; i++) {
 			if (i + 1 == bloques)
-				maxBloqueCifradoLen = mensaje.length - (i * maxBloqueCifrado);
+				maxBloqueCifradoLen = mensaje.length - (i * MAX_BLOQUE_CIFRADO);
 				
-			byte[] bloqueCifrado = cipher.doFinal(mensaje, i * maxBloqueCifrado, maxBloqueCifradoLen);
+			byte[] bloqueCifrado = cipher.doFinal(mensaje, i * MAX_BLOQUE_CIFRADO, maxBloqueCifradoLen);
 			
 			baos.write(bloqueCifrado);
 		}
