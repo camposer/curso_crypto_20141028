@@ -10,13 +10,13 @@ import javax.crypto.KeyGenerator;
 
 
 public class TestSK {
-	private static final String ALGORITMO = "DES";
+	private static final String ALGORITMO = "AES";
 	private static final String FICHERO_ORIGINAL = "file/quijote.txt";
 	private static final String FICHERO_CIFRADO = "file/quijote-cifrado.txt";
 	private static final String FICHERO_DESCIFRADO = "file/quijote-descifrado.txt";
 	
 	public static void main(String[] args) throws Exception {
-		// 1. Obteniendo clave simétrica
+		// 0. Obteniendo clave simétrica
 		KeyGenerator keyGen = KeyGenerator.getInstance(ALGORITMO);
 		Key key = keyGen.generateKey();
 
