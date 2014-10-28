@@ -45,7 +45,7 @@ public class TestPK {
 		
 		// 4. Cifrando por bloque
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		int maxBloqueDescifradoLen = MAX_BLOQUE_CIFRADO;
+		int maxBloqueDescifradoLen = MAX_BLOQUE_DESCIFRADO;
 		
 		int maxBloqueDescifrado = MAX_BLOQUE_DESCIFRADO;
 		if (mensajeCifrado.length < MAX_BLOQUE_DESCIFRADO)
