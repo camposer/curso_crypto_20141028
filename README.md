@@ -85,6 +85,12 @@ Algoritmos
 - Cifrado asimétrico: RSA, DSA, DiffieHellman. Longitudes de clave de 256, 521, 1024
 
 
+Enlaces
+-------
 
+- Crypto JS
+	- https://code.google.com/p/crypto-js/
+- XDR y CORS
+	- http://camposer-techie.blogspot.com.es/2011/08/cors-xdm-same-origin-policy-prototype-y.html
 
 
