@@ -11,6 +11,12 @@ public class Persona implements Serializable {
 	private String apellido;
 	private Date fechaNacimiento;
 	
+	public Persona(String nombre, String apellido, Date fechaNacimiento) {
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.fechaNacimiento = fechaNacimiento;
+	}
+	
 	public Integer getId() {
 		return id;
 	}
@@ -34,5 +40,11 @@ public class Persona implements Serializable {
 	}
 	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
+	}
+
+	@Override
+	public String toString() {
+		return "Persona [id=" + id + ", nombre=" + nombre + ", apellido="
+				+ apellido + ", fechaNacimiento=" + fechaNacimiento + "]";
 	}
 }

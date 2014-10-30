@@ -5,7 +5,7 @@ import java.util.List;
 
 import crypto.rmi.to.Persona;
 
-public class PersonaDummyDaoImpl implements PersonaDummyDao {
+public class PersonaDummyDaoImpl implements PersonaDao {
 	private List<Persona> personas = new ArrayList<Persona>();
 	private int contador = 1;
 

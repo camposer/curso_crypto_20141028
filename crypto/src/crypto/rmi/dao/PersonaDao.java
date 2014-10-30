@@ -5,7 +5,7 @@ import java.util.List;
 import crypto.rmi.to.Persona;
 
 //CRUD+ = Create / Read / Update / Delete / List
-public interface PersonaDummyDao {
+public interface PersonaDao {
 	void agregar(Persona p);
 	void modificar(Persona p);
 	void eliminar(Integer id);
