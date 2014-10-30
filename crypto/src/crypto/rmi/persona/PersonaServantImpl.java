@@ -18,7 +18,7 @@ public class PersonaServantImpl
 	private static final long serialVersionUID = -281030892851325706L;
 	
 	public static enum ModoSsl {
-		SSL1W(true), SSL2W(false);
+		SSL1W(false), SSL2W(true);
 		
 		private boolean validatedAtClient;
 		
