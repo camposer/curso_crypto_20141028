@@ -5,10 +5,10 @@ import java.rmi.registry.Registry;
 
 import crypto.rmi.persona.PersonaServantImpl.ModoSsl;
 
-public class PersonaSsl1wServer {
+public class PersonaSsl2wServer {
 	public static void main(String[] args) throws Exception {
 		Registry registry = LocateRegistry.createRegistry(1099);
-		registry.rebind("personaServant", new PersonaServantImpl(ModoSsl.SSL1W));
+		registry.rebind("personaServant", new PersonaServantImpl(ModoSsl.SSL2W));
 		System.out.println("Registro rmi iniciado...");
 	}
 }
