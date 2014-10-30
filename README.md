@@ -69,6 +69,8 @@ Enlaces
 	http://www.securingjava.com/chapter-three/chapter-three-7.html
 
 - SSL y JRMIS
+	- Java Secure Socket Extension (JSSE) Reference Guide 
+	http://docs.oracle.com/javase/8/docs/technotes/guides/security/jsse/JSSERefGuide.html
 	- Autenticación SSL de dos vías
 	http://publib.boulder.ibm.com/infocenter/tivihelp/v5r1/index.jsp?topic=%2Fcom.ibm.itim.infocenter.doc%2Fcpt%2Fcpt_ic_security_ssl_authent2way.html
 	- JRMI
