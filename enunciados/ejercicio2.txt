@@ -3,3 +3,27 @@ Ejercicio 2
 
 1. Implementar un objeto remoto que ofrezca las operaciones CRUD+ sobre la entidad Persona
 2. Implementar un cliente que permita utilizar las operaciones CRUD+ sobre la entidad Persona a través de JRMI.
+
+	Por ejemplo:
+		Gestión de personas
+		1. Agregar
+		2. Modificar
+		3. Eliminar
+		4. Obtener uno
+		5. Obtener todos
+		? 1
+
+		Nombre? Juan
+		Apellido? Pérez
+		Fecha de Nacimiento? 2012-01-01
+		
+		Gestión de personas
+		1. Agregar
+		2. Modificar
+		3. Eliminar
+		4. Obtener uno
+		5. Obtener todos
+		? 5
+
+		[ Nombre = Juan, Apellido = Pérez, Fecha de Nacimiento = XXX ]
+
