@@ -1,0 +1,5 @@
+Ejercicio 2
+===========
+
+1. Implementar un objeto remoto que ofrezca las operaciones CRUD+ sobre la entidad Persona
+2. Implementar un cliente que permita utilizar las operaciones CRUD+ sobre la entidad Persona a través de JRMI.

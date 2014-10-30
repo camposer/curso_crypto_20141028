@@ -69,6 +69,8 @@ Enlaces
 	http://www.securingjava.com/chapter-three/chapter-three-7.html
 
 - SSL y JRMIS
+	- Infografía Handshake SSL
+	http://upload.wikimedia.org/wikipedia/commons/e/e5/Ssl_handshake_with_two_way_authentication_with_certificates.png
 	- Java Secure Socket Extension (JSSE) Reference Guide 
 	http://docs.oracle.com/javase/8/docs/technotes/guides/security/jsse/JSSERefGuide.html
 	- Autenticación SSL de dos vías
