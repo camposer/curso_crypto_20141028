@@ -20,4 +20,9 @@ Servidor:
 
 Cliente:
 
+1.- Obtener el registro rmi (LocateRegistry.getRegistry)
+
+2.- Pedir la referencia al objeto remoto (registry.lookup)
+
+3.- Invocar el método remoto a través de la interfaz remota
 
